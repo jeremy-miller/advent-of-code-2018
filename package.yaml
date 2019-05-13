@@ -18,6 +18,15 @@ extra-source-files:
 # common to point users to the README.md file.
 description:         Please see the README on GitHub at <https://github.com/jeremy-miller/advent-of-code-2018#readme>
 
+ghc-options:
+  - -Wall
+  - -Wcompat
+  - -Wredundant-constraints
+  - -Wnoncanonical-monad-instances
+
+default-extensions:
+  - OverloadedStrings
+
 dependencies:
 - base >= 4.7 && < 5
 
@@ -25,3 +34,5 @@ executables:
   day1:
     main:                Main.hs
     source-dirs:         day1
+    dependencies:
+      - mtl
