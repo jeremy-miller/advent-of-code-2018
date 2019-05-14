@@ -33,3 +33,8 @@ executables:
     source-dirs:         day1
     dependencies:
       - mtl
+  day2:
+    main:                Day2.hs
+    source-dirs:         day2
+    dependencies:
+      - mtl
