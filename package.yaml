@@ -29,7 +29,7 @@ dependencies:
 
 executables:
   day1:
-    main:                Main.hs
+    main:                Day1.hs
     source-dirs:         day1
     dependencies:
       - mtl
