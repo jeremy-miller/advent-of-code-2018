@@ -24,9 +24,6 @@ ghc-options:
   - -Wredundant-constraints
   - -Wnoncanonical-monad-instances
 
-default-extensions:
-  - OverloadedStrings
-
 dependencies:
 - base >= 4.7 && < 5
 
