@@ -12,8 +12,8 @@ parseLine ('-' : frequency) = Subtract $ read frequency
 parseLine _                 = error "Invalid line"
 
 combine :: FrequencyLine -> Frequency -> Frequency
-combine (Add      x) n = n + x
-combine (Subtract x) n = n - x
+combine (Add      change) accumulated = accumulated + change
+combine (Subtract change) accumulated = accumulated - change
 
 adjustSingleFrequency :: String -> State Frequency ()
 adjustSingleFrequency line = do
