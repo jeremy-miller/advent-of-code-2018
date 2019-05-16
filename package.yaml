@@ -29,13 +29,13 @@ dependencies:
 
 executables:
   day1-part1:
-    main:                Part1.hs
-    source-dirs:         day1/part1
+    main:               Part1.hs
+    source-dirs:        day1/part1
     dependencies:
       - mtl
   day1-part2:
-    main:                Part2.hs
-    source-dirs:         day1/part2
+    main:               Part2.hs
+    source-dirs:        day1/part2
   day2:
-    main:                Day2.hs
-    source-dirs:         day2
+    main:               Day2.hs
+    source-dirs:        day2
