@@ -36,3 +36,6 @@ executables:
   day1-part2:
     main:                Part2.hs
     source-dirs:         day1/part2
+  day2:
+    main:                Day2.hs
+    source-dirs:         day2
