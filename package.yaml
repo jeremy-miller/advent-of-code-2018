@@ -28,13 +28,11 @@ dependencies:
 - base >= 4.7 && < 5
 
 executables:
-  day1:
-    main:                Day1.hs
-    source-dirs:         day1
+  day1-part1:
+    main:                Part1.hs
+    source-dirs:         day1/part1
     dependencies:
       - mtl
-  day2:
-    main:                Day2.hs
-    source-dirs:         day2
-    dependencies:
-      - mtl
+  day1-part2:
+    main:                Part2.hs
+    source-dirs:         day1/part2
