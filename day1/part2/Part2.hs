@@ -1,5 +1,7 @@
 module Main where
 
+-- Problem: https://adventofcode.com/2018/day/1#part2
+
 type Frequency = Int
 type FrequenciesSeen = [Frequency]
 type UnparsedFrequencyLine = String

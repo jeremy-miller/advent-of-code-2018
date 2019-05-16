@@ -1,5 +1,7 @@
 module Main where
 
+-- Problem: https://adventofcode.com/2018/day/1
+
 import           Control.Monad.State
 import           Data.Foldable
 
