@@ -1,32 +1,33 @@
 module Main where
 
-import           Control.Monad.State
-import           Data.Foldable
-
 type Frequency = Int
-data FrequencyLine = Add Frequency | Subtract Frequency
+type FrequenciesSeen = [Frequency]
+type UnparsedFrequencyLine = String
+type UnparsedFrequencyLines = [UnparsedFrequencyLine]
+data FrequencyLine = Add Frequency | Subtract Frequency deriving (Show)
 
-parseLine :: String -> FrequencyLine
+parseLine :: UnparsedFrequencyLine -> FrequencyLine
 parseLine ('+' : frequency) = Add $ read frequency
 parseLine ('-' : frequency) = Subtract $ read frequency
 parseLine _                 = error "Invalid line"
 
-combine :: FrequencyLine -> Frequency -> Frequency
-combine (Add      x) n = n + x
-combine (Subtract x) n = n - x
+combine :: Frequency -> FrequencyLine -> Frequency
+combine latestFreq (Add      change) = latestFreq + change
+combine latestFreq (Subtract change) = latestFreq - change
 
-adjustSingleFrequency :: String -> State Frequency ()
-adjustSingleFrequency line = do
-  currentFrequency <- get
-  let lineFrequency = parseLine line
-  put (combine lineFrequency currentFrequency)
-
-adjustFrequency :: [String] -> State Frequency ()
-adjustFrequency = traverse_ adjustSingleFrequency
+checkForRepeatedFreq :: FrequenciesSeen -> UnparsedFrequencyLines -> Frequency
+checkForRepeatedFreq []      _  = 0
+checkForRepeatedFreq (_ : _) [] = 0
+checkForRepeatedFreq freqSeen@(latestFreq : _) (line : rest)
+  | newFreq `elem` freqSeen = newFreq
+  | otherwise               = checkForRepeatedFreq (newFreq : freqSeen) rest
+ where
+  lineFreq = parseLine line
+  newFreq  = combine latestFreq lineFreq
 
 main :: IO ()
 main = do
   file <- readFile "data/frequencies.txt"
   let frequencies       = lines file
   let startingFrequency = 0
-  print $ execState (adjustFrequency frequencies) startingFrequency
+  print $ checkForRepeatedFreq [startingFrequency] $ cycle frequencies  -- need to loop the list of frequencies
