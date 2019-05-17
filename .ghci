@@ -1,4 +1,4 @@
-:set prompt "ghci> "
+:set prompt "λ> "
 
 -- add src/ to search path for files
 :set -isrc
