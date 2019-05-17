@@ -39,3 +39,5 @@ executables:
   day2:
     main:               Day2.hs
     source-dirs:        day2
+    dependencies:
+      - containers
