@@ -4,22 +4,26 @@ module Main where
 
 import           Data.Map                      as M
 
-type Acc = Int
+type Accumulator = Int
 type BoxID = String
 type Count = Int
 
 charCounts :: BoxID -> Map Char Count
 charCounts boxID = M.fromListWith (+) [ (char, 1) | char <- boxID ]
 
-twoCharCounts :: Acc -> BoxID -> Acc
+twoCharCounts :: Accumulator -> BoxID -> Accumulator
 twoCharCounts acc boxID | twosCount > 0 = acc + 1
                         | otherwise     = acc
-  where twosCount = length $ M.filter (== 2) $ charCounts boxID
+ where
+  counts    = charCounts boxID
+  twosCount = length $ M.filter (== 2) counts
 
-threesCharCounts :: Acc -> BoxID -> Acc
-threesCharCounts acc boxID | twosCount > 0 = acc + 1
-                           | otherwise     = acc
-  where twosCount = length $ M.filter (== 3) $ charCounts boxID
+threesCharCounts :: Accumulator -> BoxID -> Accumulator
+threesCharCounts acc boxID | threesCount > 0 = acc + 1
+                           | otherwise       = acc
+ where
+  counts      = charCounts boxID
+  threesCount = length $ M.filter (== 3) counts
 
 main :: IO ()
 main = do
