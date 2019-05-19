@@ -27,8 +27,7 @@ threesCharCounts acc boxID | threesCount > 0 = acc + 1
 
 main :: IO ()
 main = do
-  file <- readFile "data/day2.txt"
-  let boxIDs      = lines file
+  boxIDs <- lines <$> readFile "data/day2.txt"
   let twosCount   = Prelude.foldl twoCharCounts 0 boxIDs
   let threesCount = Prelude.foldl threesCharCounts 0 boxIDs
   print $ twosCount * threesCount

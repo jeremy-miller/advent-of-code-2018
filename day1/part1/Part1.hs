@@ -29,7 +29,6 @@ adjustFrequency = traverse_ adjustSingleFrequency
 
 main :: IO ()
 main = do
-  file <- readFile "data/day1.txt"
-  let frequencies       = lines file
+  frequencies <- lines <$> readFile "data/day1.txt"
   let startingFrequency = 0
   print $ execState (adjustFrequency frequencies) startingFrequency
