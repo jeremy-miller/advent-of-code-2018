@@ -22,6 +22,6 @@ commonBoxID boxIDTuples = head $ filterBoxIDs boxIDLength $ map commonChars
 
 main :: IO ()
 main = do
-  boxIDs <- lines <$> readFile "data/box_ids.txt"
+  boxIDs <- lines <$> readFile "data/day2.txt"
   let boxIDTuples = [ (id1, id2) | id1 <- boxIDs, id2 <- boxIDs ]
   print $ commonBoxID boxIDTuples

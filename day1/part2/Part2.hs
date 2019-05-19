@@ -29,7 +29,7 @@ checkForRepeatedFreq freqSeen@(latestFreq : _) (line : rest)
 
 main :: IO ()
 main = do
-  file <- readFile "data/frequencies.txt"
+  file <- readFile "data/day1.txt"
   let frequencies       = lines file
   let startingFrequency = 0
   print $ checkForRepeatedFreq [startingFrequency] $ cycle frequencies  -- need to loop the list of frequencies

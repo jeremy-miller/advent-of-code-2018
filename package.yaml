@@ -24,6 +24,9 @@ ghc-options:
   - -Wredundant-constraints
   - -Wnoncanonical-monad-instances
 
+data-files:
+  - data/*.*
+
 dependencies:
 - base >= 4.7 && < 5
 
