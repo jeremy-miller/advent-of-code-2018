@@ -1,7 +1,10 @@
 :set prompt "λ> "
 
--- add src/ to search path for files
-:set -isrc
-
 -- show elapsed time and number of bytes allocated after each execution
 :set +s
+
+:load day1/part1/Part1.hs
+:load day1/part2/Part2.hs
+:load day2/part1/Part1.hs
+:load day2/part2/Part2.hs
+:load day3/Day3.hs
