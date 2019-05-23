@@ -50,3 +50,6 @@ executables:
   day3:
     main:               Day3.hs
     source-dirs:        day3
+    dependencies:
+      - matrix
+      - megaparsec
